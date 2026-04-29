@@ -30,6 +30,7 @@ Binary classification project predicting match outcomes from early-game metrics 
 
 - No missing data confirmed via `missmap()`
 - Summary statistics and distribution plots generated with `Desc()` and `DataExplorer`
+**[View Full EDA Report](https://tomatoooooooo.github.io/League-Win-Prediction/eda_report.html)**
 - Distribution plots split by outcome showed clear separation for gold and experience variables, weaker separation for kill/ward metrics
 
 ![Distribution Plots](images/distplot.PNG)
