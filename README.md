@@ -240,7 +240,6 @@ SHAP analysis was conducted across Random Forest, Logistic Regression, and CatBo
 - Early dragon control had meaningful but inconsistent impact
 - Raw kill counts were not significant predictors — resource efficiency mattered more than aggression
 
-> *"SHAP analysis revealed that the engineered `goldshare` feature was the single strongest predictor across all model classes. Raw kill counts were not significant at 10 minutes — resource leads and objective control were far stronger signals, suggesting early game outcomes are driven more by efficiency than aggression."*
 
 ---
 
