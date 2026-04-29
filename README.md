@@ -32,11 +32,11 @@ Binary classification project predicting match outcomes from early-game metrics 
 - Summary statistics and distribution plots generated with `Desc()` and `DataExplorer`
 - Distribution plots split by outcome showed clear separation for gold and experience variables, weaker separation for kill/ward metrics
 
-![Distribution Plots](images/distplot.png)
+![Distribution Plots](images/distplot.PNG)
 
 - Correlation matrix revealed strong multicollinearity between red/blue mirror columns and between difference columns and their component totals
 
-![Correlation Matrix](images/corrmat.png)
+![Correlation Matrix](images/corrmat.PNG)
 
 ---
 
@@ -72,7 +72,7 @@ data$redObjectives  <- data$redDragons  + data$redHeralds
 
 Distribution plots confirmed all four engineered features provide meaningful class separation.
 
-![Distribution Plots](images/distplot2.png)
+![Distribution Plots](images/distplot2.PNG)
 
 ---
 
@@ -102,7 +102,7 @@ All models evaluated on the validation set using:
 
 A custom ROC curve function was built to visualize the optimal threshold for each model:
 
-![ROC Curve](images/roccurve.png)
+![ROC Curve](images/roccurve.PNG)
 
 ### Logistic Regression
 
@@ -136,7 +136,7 @@ Full LDA encountered heavy multicollinearity — PCA and reduced model variants 
 
 OOB error stabilised at ~300 trees. Hyperparameters tuned via 5-fold CV grid search over `mtry` ∈ {2, 5, 8, 11} and `min.node.size` ∈ {1, 5, 10}.
 
-![OOB Error vs ntree](images/ooberror.png)
+![OOB Error vs ntree](images/ooberror.PNG)
 
 ### KNN
 
@@ -181,13 +181,13 @@ Both tuned via Bayesian optimisation with 20 initial points and 50 iterations us
 
 Two-layer network with batch normalisation and dropout (0.3 / 0.2). Trained for 400 epochs with SGD (lr = 0.01) and BCEWithLogitsLoss. Linear activation outperformed ReLU, Sigmoid, Tanh, and LeakyReLU — a further indicator of the largely linear relationship in the data. R/Python interop via `reticulate`.
 
-![Training Loss and Accuracy curves](images/lossandacc.png)
+![Training Loss and Accuracy curves](images/lossandacc.PNG)
 
 ---
 
 ## Results
 
-![Model Accuracy Comparison](images/modelaccs.png)
+![Model Accuracy Comparison](images/modelaccs.PNG)
 
 All 21 models converged to a remarkably narrow accuracy band of 71–75%, with AUC-ROC between 0.785 and 0.815. This ceiling is consistent with the inherent unpredictability of a 10-minute snapshot in a 30–40 minute game.
 
@@ -209,7 +209,7 @@ blueWins ~ goldshare + blueDragons + blueExperienceDiff
 - AUC: **0.827**
 - Accuracy: **74.9%**
 
-![Final ROC Curve](images/finalroc.png)
+![Final ROC Curve](images/finalroc.PNG)
 
 ---
 
@@ -219,19 +219,19 @@ SHAP analysis was conducted across Random Forest, Logistic Regression, and CatBo
 
 ### SHAP — Random Forest
 
-![Random Forest Beeswarm](images/forestshap.png)
-![Random Forest Barplot](images/forestbar.png)
+![Random Forest Beeswarm](images/forestshap.PNG)
+![Random Forest Barplot](images/forestbar.PNG)
 
 ### SHAP — Logistic Regression
 
-![Logistic Regression Beeswarm](images/logshap.png)
-![Logistic Regression Barplot](images/logbar.png)
+![Logistic Regression Beeswarm](images/logshap.PNG)
+![Logistic Regression Barplot](images/logbar.PNG)
 
 
 ### SHAP — CatBoost
 
-![Catboost Beeswarm](images/catshap.png)
-![Catboost Barplot](images/catbar.png)
+![Catboost Beeswarm](images/catshap.PNG)
+![Catboost Barplot](images/catbar.PNG)
 
 **Key findings consistent across all three models:**
 - `goldshare` (engineered) was the strongest predictor, outperforming raw `blueGoldDiff`
