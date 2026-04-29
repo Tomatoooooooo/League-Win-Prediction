@@ -251,7 +251,7 @@ The reason becomes clear when you look at what the models actually learned. Step
 
 The linear activation function outperforming ReLU, Sigmoid, and Tanh in the neural network adds a final punctuation mark: the underlying relationship in this data is largely linear. Gold leads translate to wins, experience leads translate to wins, and securing early objectives compounds both. Everything else — kills, wards, assists, jungle pressure — is largely noise at the 10-minute mark, or already captured indirectly through its effect on gold and experience.
 
-This points to a fundamental ceiling in early-game prediction. At 10 minutes, a League of Legends match is not yet decided — it is merely tilted. The signal exists, it is real, and it is almost entirely encoded in three numbers.
+This points to a fundamental ceiling in early-game prediction. At 10 minutes, a League of Legends match is not yet decided, but it is leaning. The signal exists, it is real, and it is almost entirely encoded in three numbers.
 
 ---
 
