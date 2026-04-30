@@ -245,7 +245,7 @@ SHAP analysis was conducted across Random Forest, Logistic Regression, and CatBo
 **Key findings consistent across all three models:**
 - `goldshare` (engineered) was the strongest predictor, outperforming raw `blueGoldDiff`
 - Experience differential was secondary to gold differential
-- Early dragon control had meaningful but inconsistent impact
+- Early dragon control had a meaningful but small impact
 - Raw kill counts were not significant predictors — resource efficiency mattered more than aggression
 
 
