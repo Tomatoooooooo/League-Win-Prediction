@@ -208,7 +208,7 @@ blueWins ~ goldshare + blueDragons + blueExperienceDiff
 ```
 **Model Calibration:**
 
-![Calibration Plot](images/calibration_ _plot.PNG)
+![Calibration Plot](images/calibration_plot.PNG)
 
 A model with strong AUC can still produce unreliable probabilities —  a predicted 70% win chance means nothing if blue actually wins 90% of  the time in those games. The calibration plot checks whether predicted probabilities match observed win rates across the full range of predictions.
 
