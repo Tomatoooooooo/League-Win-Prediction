@@ -233,11 +233,9 @@ SHAP analysis was conducted across Random Forest, Logistic Regression, and CatBo
 ![Random Forest Beeswarm](images/forestshap.PNG)
 ![Random Forest Barplot](images/forestbar.PNG)
 
-### SHAP — Logistic Regression
+### SHAP — Stepwise BIC Logistic Regression
 
-![Logistic Regression Beeswarm](images/logshap.PNG)
-![Logistic Regression Barplot](images/logbar.PNG)
-
+![BIC Logistic Regression Beeswarm](images/finalshap.PNG)
 
 ### SHAP — CatBoost
 

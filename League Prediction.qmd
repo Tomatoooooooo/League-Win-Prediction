@@ -1338,4 +1338,18 @@ calibration_plot <- function(actual, probs, model, bins = 10) {
 
 calibration_plot(validate$blueWins, bicprobs, "Reduced Logistic BIC")
 
+#shap plot
+pfun <- function(model, newdata) {
+  predict(model, newdata)
+}
+
+ksbic <- kernelshap(
+  step_modelBIC,
+  X        = as.data.frame(x_validate[1:300,c(8,16,28)]), #keep to 300 for speed
+  bg_X     = as.data.frame(x_train[sample(nrow(x_train), 100),c(8,16,28)]),
+  pred_fun = pfun
+)
+shpbic <- shapviz(ksbic)
+sv_importance(shpbic, kind = "beeswarm")
+sv_importance(shpbic, kind = "bar")
 ```
