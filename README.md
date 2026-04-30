@@ -1,3 +1,4 @@
+
 # League of Legends Win Prediction at 10 Minutes
 
 Binary classification project predicting match outcomes from early-game metrics in Diamond-ranked League of Legends games. 21 models were compared across logistic regression variants, tree-based ensembles, SVMs, discriminant analysis, Naive Bayes, and a neural network — with the final model selected on interpretability rather than raw accuracy.
@@ -205,12 +206,20 @@ The BIC model uses only three predictors:
 ```
 blueWins ~ goldshare + blueDragons + blueExperienceDiff
 ```
+**Model Calibration:**
+![Calibration Plot](images/calibration plot.png)
+
+A model with strong AUC can still produce unreliable probabilities —  a predicted 70% win chance means nothing if blue actually wins 90% of  the time in those games. The calibration plot checks whether predicted probabilities match observed win rates across the full range of predictions.
+
+The final Stepwise BIC model is exceptionally well calibrated. Points track closely along the diagonal across the entire probability range, meaning a predicted 30% win probability genuinely corresponds to roughly a 30% observed win rate, and so on.
 
 **Final test set performance:**
 - AUC: **0.827**
 - Accuracy: **74.9%**
 
 ![Final ROC Curve](images/finalroc.PNG)
+
+
 
 ---
 

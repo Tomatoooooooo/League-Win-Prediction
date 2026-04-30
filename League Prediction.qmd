@@ -4,8 +4,9 @@ format: pdf
 editor: visual
 ---
 
+![](images/clipboard-133223893.png)
 
-## Binary Classification - League of Legends Win prediction at 10 minutes
+## ![](images/clipboard-4290094380.png)Binary Classification - League of Legends Win prediction at 10 minutes
 
 #### Import Libraries
 
@@ -516,9 +517,9 @@ pcaqdaprobs <- predict(pcaqda, newdata = x_validate, type = 'prob')[,2]
 roc_auc(validate$blueWins, pcaqdaprobs, 'PCA QDA') #AUC of 0.796
 
 #use youden's j to make predictions
-pcaqdapreds <- ifelse(pcaldaprobs > 0.603, 1, 0)
+pcaqdapreds <- ifelse(pcaqdaprobs > 0.603, 1, 0)
 #make a confusion matrix
-confusionMatrix(as.factor(pcaqdapreds), as.factor(validate$blueWins), positive = '1') # Accuracy : 0.7317
+confusionMatrix(as.factor(pcaqdapreds), as.factor(validate$blueWins), positive = '1') # Accuracy : 0.725 
 
 
 
@@ -1303,5 +1304,37 @@ confusionMatrix(as.factor(finalpreds), as.factor(test$blueWins), positive = '1')
 
 #AUC of 0.827
 # Accuracy : 0.7487
+
+#calibration plot
+calibration_plot <- function(actual, probs, model, bins = 10) {
+  df <- data.frame(actual = as.numeric(as.character(actual)), 
+                   probs = probs)
+  
+  df$bin <- cut(probs, breaks = seq(0, 1, by = 1/bins), 
+                include.lowest = TRUE)
+  
+  df %>%
+    group_by(bin) %>%
+    summarise(
+      mean_pred   = mean(probs),
+      mean_actual = mean(actual),
+      n           = n()
+    ) %>%
+    ggplot(aes(x = mean_pred, y = mean_actual)) +
+    geom_point(aes(size = n), color = "steelblue") +
+    geom_line(color = "steelblue") +
+    geom_abline(lty = 2, color = "gray50") +
+    scale_size_continuous(name = "n games") +
+    labs(
+      title    = paste("Calibration Plot —", model),
+      subtitle = "Dashed line = perfect calibration",
+      x        = "Mean predicted probability",
+      y        = "Observed win rate"
+    ) +
+    xlim(0, 1) + ylim(0, 1) +
+    theme_minimal()
+}
+
+calibration_plot(validate$blueWins, bicprobs, "Reduced Logistic BIC")
 
 ```
